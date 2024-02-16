@@ -1,3 +1,37 @@
 .container {
-    width: 18rem;
+  display: flex;
+  margin: 1rem;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  margin-bottom: 10vh;
+
+}
+
+
+.title {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.parr {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    text-align: justify;
+}
+
+
+.divSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputSearch {
+  width: 80%;
+  border-radius: 15px;
+  height: 50px;
 }
