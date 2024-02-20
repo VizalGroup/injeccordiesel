@@ -1,11 +1,10 @@
 .container {
-  display: flex;
-  margin: 1rem;
+  margin-bottom: 10vh;
   padding: 20px;
   display: flex;
+  margin: 1rem;
   flex-wrap: wrap;
   justify-content:space-around;
-  margin-bottom: 10vh;
 
 }
 

@@ -1,0 +1,33 @@
+.banner {
+  background-color: #128c7e;
+  padding: 40px;
+  margin-right: 3vw;
+  margin-left: 3vw;
+  text-align: center;
+  transition: background-color 2s ease;
+}
+
+.parr {
+  color: white;
+  font-size: 36px;
+}
+
+.whatsapp{
+    color: white;
+    font-size: 45px;
+    text-decoration: none;
+  }
+  
+  .banner:hover {
+    background-color: #4aaf4a; /* Cambia el color de fondo al pasar el mouse por encima */
+}
+
+@media only screen and (max-width: 600px) {
+  .parr {
+    font-size: 24px; /* Ajusta el tamaño de fuente para pantallas móviles */
+  }
+  
+  .whatsapp {
+    font-size: 30px; /* Ajusta el tamaño de fuente para el enlace de WhatsApp en pantallas móviles */
+  }
+}

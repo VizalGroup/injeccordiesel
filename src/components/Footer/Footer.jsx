@@ -3,10 +3,9 @@ import Style from "./Footer.module.css";
 import { FaWhatsapp, FaEnvelope, FaCode } from "react-icons/fa";
 
 export default function Footer() {
-  const phoneNumber = "3516658905";
 
   const handleWhatsappClick = () => {
-    window.open(`https://wa.me/${phoneNumber}`, "_blank");
+    window.open(`https://wa.me/3516658905`, "_blank");
   };
 
   return (

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../../assets/logo.png";
 import { GetCategories } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const categories = useSelector((state) => state.categories);
@@ -76,9 +77,8 @@ export default function NavBar() {
                   <ul class="dropdown-menu">
                     {categories.map((category) => (
                       <li key={category.id}>
-                        <a class="dropdown-item" href="#">
-                          {category.title}
-                        </a>
+                        <Link class="dropdown-item" to={`/categoria/${category.id}`}>{category.title}</Link>
+
                       </li>
                     ))}
                     <li>
@@ -92,7 +92,7 @@ export default function NavBar() {
                   </ul>
                 </li>
               </ul>
-              <form class="d-flex mt-3" role="search">
+              {/* <form class="d-flex mt-3" role="search">
                 <input
                   class="form-control me-2"
                   type="search"
@@ -102,7 +102,7 @@ export default function NavBar() {
                 <button class="btn btn-outline-dark" type="submit">
                   Buscar
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>

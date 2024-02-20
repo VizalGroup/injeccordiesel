@@ -18,7 +18,7 @@ export default function Slider() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(intervalId); // Limpiar el intervalo al desmontar el componente
   }, []);
@@ -30,7 +30,7 @@ export default function Slider() {
   return (
     <div>
       <Carousel
-        interval={2300}
+        interval={2000}
         indicators={false}
         controls={false}
         
