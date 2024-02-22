@@ -22,6 +22,7 @@ export default function AllProducts() {
     dispatch(GetCategories());
   }, [dispatch]);
 
+  console.log(subcategories);
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -72,7 +73,7 @@ export default function AllProducts() {
 
       {/* Contenedor de las Cartas */}
       <div className={Style.container}>
-        {filteredProducts.map((product, index) => (
+        {filteredProducts.reverse().map((product, index) => (
           <div
             className="card"
             style={{ width: "18rem", marginBottom: "1vh" }}

@@ -82,6 +82,7 @@ export const PostCategory = (atributos) => {
       });
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 };
@@ -180,6 +181,7 @@ export const PostSubcategory = (atributos) => {
       });
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 };
@@ -283,11 +285,13 @@ export const PostProduct = (atributos) => {
         type: POST_PRODUCT,
         payload: response.data,
       });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log("Error al publicar el producto:", error);
+      throw error; // Lanzar el error para que se maneje en el componente
     }
   };
 };
+
 
 export const UpdateProduct = (id, atributos) => {
   return async function (dispatch) {
