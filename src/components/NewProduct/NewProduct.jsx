@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { PostProduct, GetSubcategories } from "../../redux/actions";
 import { Form, Button, Alert } from "react-bootstrap";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function NewProduct() {
   const dispatch = useDispatch();
@@ -31,7 +32,6 @@ export default function NewProduct() {
       setShowError(true);
     }
   };
-  
 
   const SubirImagenesClodinari = async (e) => {
     const files = e.target.files;
@@ -55,11 +55,23 @@ export default function NewProduct() {
   return (
     <div className="container">
       <br />
-      <a className="btn btn-primary" href="/dashboard" style={{ marginBottom: "3vh" }}>Volver al Panel</a>
+      <a
+        className="btn btn-primary"
+        href="/dashboard"
+        style={{ marginBottom: "3vh" }}
+      >
+        <FaArrowLeft/>
+      </a>
 
       <h2>Nuevo Producto</h2>
-      {showSuccess && <Alert variant="success">Producto publicado con éxito.</Alert>}
-      {showError && <Alert variant="danger">Error al publicar el producto. Por favor, inténtalo de nuevo.</Alert>}
+      {showSuccess && (
+        <Alert variant="success">Producto publicado con éxito.</Alert>
+      )}
+      {showError && (
+        <Alert variant="danger">
+          Error al publicar el producto. Por favor, inténtalo de nuevo.
+        </Alert>
+      )}
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="title">
           <Form.Label>Nombre del producto</Form.Label>
@@ -97,6 +109,18 @@ export default function NewProduct() {
         <br />
         <Form.Group controlId="picture">
           <Form.Label>Imagen</Form.Label>
+          <br />
+          <Form.Text className="text-muted">
+            Recuerda subir una imagen PNG para que el aspecto de la página de
+            cada categoría se muestre correctamente. Convierte tu Imagen{" "}
+            <a
+              href="https://www.remove.bg/es"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Aquí
+            </a>
+          </Form.Text>
           <Form.Control
             type="file"
             name="file"

@@ -7,7 +7,6 @@ export default function NewSubcategory() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     title: "",
-    picture: null,
     id_category: "",
   });
   const [showSuccess, setShowSuccess] = useState(false);
@@ -53,11 +52,11 @@ export default function NewSubcategory() {
     <div>
       <h2>Nueva Subcategoria</h2>
       {showSuccess && (
-        <Alert variant="success">Producto publicado con éxito.</Alert>
+        <Alert variant="success">Subcategoría creada con éxito.</Alert>
       )}
       {showError && (
         <Alert variant="danger">
-          Error al publicar el producto. Por favor, inténtalo de nuevo.
+          Error al crear subcategoría. Por favor, inténtalo de nuevo.
         </Alert>
       )}
       <Form onSubmit={handleSubmit}>
@@ -77,13 +76,13 @@ export default function NewSubcategory() {
           <br />
           <Form.Text className="text-muted">
             Recuerda subir una imagen PNG para que el aspecto de la página de
-            cada categoría se muestre correctamente. Convierte tu Imagen {" "}
+            cada categoría se muestre correctamente. Convierte tu Imagen{" "}
             <a
               href="https://www.remove.bg/es"
               target="_blank"
               rel="noopener noreferrer"
             >
-               Aquí
+              Aquí
             </a>
             . TODAVÍA PENDIENTE DE USAR O NO.
           </Form.Text>
@@ -91,7 +90,6 @@ export default function NewSubcategory() {
             type="file"
             name="file"
             onChange={(e) => SubirImagenesClodinari(e)}
-            required
           />
         </Form.Group>
         <br />

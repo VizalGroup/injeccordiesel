@@ -101,6 +101,7 @@ export const UpdateCategory = (id, atributos) => {
       });
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 };
@@ -117,6 +118,7 @@ export const DeleteCategory = (id) => {
       });
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 };
@@ -186,7 +188,7 @@ export const PostSubcategory = (atributos) => {
   };
 };
 
-export const UpdatesubCategory = (id, atributos) => {
+export const UpdateSubcategory = (id, atributos) => {
   return async function (dispatch) {
     try {
       var f = new FormData();
@@ -203,6 +205,7 @@ export const UpdatesubCategory = (id, atributos) => {
       });
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 };
@@ -312,6 +315,7 @@ export const UpdateProduct = (id, atributos) => {
       });
     } catch (err) {
       console.log(err);
+      throw err;
     }
   };
 };

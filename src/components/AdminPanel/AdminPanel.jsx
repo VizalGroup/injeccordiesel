@@ -32,7 +32,7 @@ export default function AdminPanel() {
           </Link>
         </div>
         <div className={Style.adminButtonContainer}>
-          <Link to="/config_products">
+          <Link to="/dashboard/manage_stock">
             <button className={`btn btn-warning btn-lg ${Style.adminButton}`}>
               <FaCog className={Style.icon} />
               <span> Administrar Existentes</span>
