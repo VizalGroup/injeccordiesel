@@ -47,7 +47,7 @@ export default function ConfigureProducts() {
   };
 
   const handleEdit = (ProductId) => {
-    const editedProduct = products.find((product) => (product.id = ProductId));
+    const editedProduct = products.find((product) => (product.id === ProductId));
     setEditedProduct(editedProduct);
     dispatch(GetProductDetail(ProductId));
   };
