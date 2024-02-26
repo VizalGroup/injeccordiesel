@@ -7,6 +7,7 @@ import {
 } from "../../redux/actions";
 import { useParams } from "react-router";
 import Style from "./PageByCategory.module.css";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function PageByCategory() {
   const dispatch = useDispatch();
@@ -34,6 +35,14 @@ export default function PageByCategory() {
     right: 0,
     bottom: 0,
     zIndex: -1,
+  };
+
+  const handleWhatsAppClick = (code, title, category, subcategory) => {
+    const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de Injeccordiesel.com.ar en ${category}, ${subcategory}. \n\n"Aquí escribe tu consulta"`;
+    const whatsappUrl = `https://wa.me/3516658905?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -79,6 +88,25 @@ export default function PageByCategory() {
                             {filteredProduct.code}
                           </li>
                         </ul>
+                        <div className="card-body">
+                          <button
+                            className="btn btn-success"
+                            onClick={() =>
+                              handleWhatsAppClick(
+                                filteredProduct.code,
+                                filteredProduct.title,
+                                categoryDetail.title,
+                                subcategories.find(
+                                  (subcategory) =>
+                                    subcategory.id ===
+                                    filteredProduct.id_subcategory
+                                )?.title
+                              )
+                            }
+                          >
+                            Consultar por <FaWhatsapp />
+                          </button>
+                        </div>
                       </div>
                     ))}
                 </div>

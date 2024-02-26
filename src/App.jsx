@@ -14,6 +14,7 @@ import Login from "./components/Login/Login";
 import NewProduct from "./components/NewProduct/NewProduct";
 import NewCategoryOrSubcategory from "./components/NewCategoryOrSubcategory/NewCategoryOrSubcategory";
 import ManageStock from "./components/AdminPanel/ManageStock/ManageStock";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 
 const PrivateRoute = ({ element }) => {
  
@@ -40,6 +41,7 @@ function App() {
         <Route stric path="/productos" element={<AllProducts />} />
         <Route stric path="/contacto" element={<Contact />} />
         <Route stric path="/categoria/:id" element={<PageByCategory />} />
+        <Route stric path="/producto/:id" element={<ProductDetail />} />
         <Route stric path="/acceso" element={<Login />} />
         <Route stric path="/dashboard" element={<PrivateRoute element={<AdminPanel />} />}/>
         <Route stric path="/dashboard/new_product" element={<PrivateRoute element={<NewProduct />} />}/>

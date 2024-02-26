@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { GetCategories } from "../../redux/actions";
 import { Carousel } from "react-bootstrap";
 import Style from "./Slider.module.css";
-import fondo1 from "../../assets/Fondo1.jpg";
-import fondo2 from "../../assets/fondo2.jpg";
-import fondo3 from "../../assets/fondo3.jpg";
+import fondo1 from "../../assets/PrimerBackground.png";
+import fondo2 from "../../assets/fondo2.png";
+
 
 
 
@@ -13,7 +13,7 @@ export default function Slider() {
   const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const backgrounds = [fondo1, fondo2, fondo3]; // Aquí agregas más imágenes según lo necesites
+  const backgrounds = [fondo1, fondo2]; // Aquí agregas más imágenes según lo necesites
 
   useEffect(() => {
     const intervalId = setInterval(() => {

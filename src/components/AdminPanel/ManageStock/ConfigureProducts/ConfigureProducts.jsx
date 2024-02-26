@@ -148,7 +148,7 @@ export default function ConfigureProducts() {
           </button>
           <button
             className="btn btn-secondary"
-            onClick={() => seteditedProduct(null)}
+            onClick={() => setEditedProduct(null)}
             style={{ margin: "3px" }}
           >
             Cancelar

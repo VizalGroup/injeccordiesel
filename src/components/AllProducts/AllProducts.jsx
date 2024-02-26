@@ -6,7 +6,7 @@ import {
   GetCategories,
 } from "../../redux/actions";
 import Style from "./AllProducts.module.css";
-
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function AllProducts() {
   const subcategories = useSelector((state) => state.subcategories);
@@ -22,12 +22,10 @@ export default function AllProducts() {
     dispatch(GetCategories());
   }, [dispatch]);
 
-  console.log(subcategories);
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Función para filtrar productos por término de búsqueda
   const filteredProducts = products.filter((product) => {
     return (
       product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -35,6 +33,12 @@ export default function AllProducts() {
       product.code.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
+
+  const handleWhatsAppClick = (code, title, category, subcategory) => {
+    const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de Injeccordiesel.com.ar en ${category}, ${subcategory}. \n\n"Aquí escribe tu consulta"`;
+    const whatsappUrl = `https://wa.me/3516658905?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <div>
@@ -64,12 +68,6 @@ export default function AllProducts() {
           onChange={handleSearchChange}
         />
       </div>
-
-      {/* <div className="input-group-append">
-          <button className="btn btn-outline-secondary" type="button">
-            Buscar
-          </button>
-        </div> */}
 
       {/* Contenedor de las Cartas */}
       <div className={Style.container}>
@@ -113,6 +111,29 @@ export default function AllProducts() {
                 {product.code}
               </li>
             </ul>
+            <div className="card-body">
+              <button
+                className="btn btn-success"
+                onClick={() =>
+                  handleWhatsAppClick(
+                    product.code,
+                    product.title,
+                    categories.find(
+                      (category) =>
+                        subcategories.find(
+                          (subcategory) =>
+                            subcategory.id === product.id_subcategory
+                        )?.id_category === category.id
+                    )?.title,
+                    subcategories.find(
+                      (subcategory) => subcategory.id === product.id_subcategory
+                    )?.title
+                  )
+                }
+              >
+                Consultar por <FaWhatsapp />
+              </button>
+            </div>
           </div>
         ))}
       </div>
