@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { PostProduct, GetSubcategories } from "../../redux/actions";
 import { Form, Button, Alert } from "react-bootstrap";
 import { FaArrowLeft } from "react-icons/fa";
+import Styles from "./NewProduct.module.css"
 
 export default function NewProduct() {
   const dispatch = useDispatch();
@@ -106,6 +107,25 @@ export default function NewProduct() {
             required
           />
         </Form.Group>
+
+        <br />
+        <Form.Group controlId="id_subcategory">
+          <Form.Label>Subcategoría</Form.Label>
+          <Form.Control
+            as="select"
+            name="id_subcategory"
+            value={formData.id_subcategory}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Seleccionar Subcategoría</option>
+            {subcategories.map((subcategory) => (
+              <option key={subcategory.id} value={subcategory.id}>
+                {subcategory.title}
+              </option>
+            ))}
+          </Form.Control>
+        </Form.Group>
         <br />
         <Form.Group controlId="picture">
           <Form.Label>Imagen</Form.Label>
@@ -128,24 +148,13 @@ export default function NewProduct() {
             required
           />
         </Form.Group>
-        <br />
-        <Form.Group controlId="id_subcategory">
-          <Form.Label>Subcategoría</Form.Label>
-          <Form.Control
-            as="select"
-            name="id_subcategory"
-            value={formData.id_subcategory}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Seleccionar Subcategoría</option>
-            {subcategories.map((subcategory) => (
-              <option key={subcategory.id} value={subcategory.id}>
-                {subcategory.title}
-              </option>
-            ))}
-          </Form.Control>
-        </Form.Group>
+        <div>
+              {formData.picture ? (
+                <div>
+                  <img className={Styles.imageRender} src={formData.picture} />
+                </div>
+              ) : null}
+            </div>
         <br />
         <Button variant="primary" type="submit">
           Publicar Producto

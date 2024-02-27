@@ -71,7 +71,7 @@ export default function NewSubcategory() {
           />
         </Form.Group>
         <br />
-        <Form.Group controlId="picture">
+        {/* <Form.Group controlId="picture">
           <Form.Label>Imagen</Form.Label>
           <br />
           <Form.Text className="text-muted">
@@ -92,7 +92,7 @@ export default function NewSubcategory() {
             onChange={(e) => SubirImagenesClodinari(e)}
           />
         </Form.Group>
-        <br />
+        <br /> */}
         <Form.Group controlId="id_category">
           <Form.Label>Categoría</Form.Label>
           <Form.Control

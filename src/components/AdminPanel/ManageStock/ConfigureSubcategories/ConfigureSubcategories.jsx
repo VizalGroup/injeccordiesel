@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   GetSubcategories,
   GetProducts,
-  GetCategories,
   GetSubcategoriesDetail,
   UpdateSubcategory,
   DeleteSubcategory,
@@ -18,7 +17,7 @@ export default function ConfigureSubcategories() {
   const products = useSelector((state) => state.products);
   const [subcategoryToDelete, setSubcategoryToDelete] = useState(null);
   const [editedSubcategory, setEditedSubcategory] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+
 
   // Dejamos este codigo en caso que se pueda llegar a usar la Subcategoria
   // const SubirImagenesClodinari = async (e) => {

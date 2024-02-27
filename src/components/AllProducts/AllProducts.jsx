@@ -15,6 +15,8 @@ export default function AllProducts() {
   const dispatch = useDispatch();
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage] = useState(1);
+  const productsPerPage = 18;
 
   useEffect(() => {
     dispatch(GetSubcategories());
@@ -24,6 +26,7 @@ export default function AllProducts() {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+    setPage(1); // Reset page to 1 when search term changes
   };
 
   const filteredProducts = products.filter((product) => {
@@ -34,11 +37,39 @@ export default function AllProducts() {
     );
   });
 
+  const startIndex = (page - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+  const displayedProducts = filteredProducts.slice(startIndex, endIndex);
+
   const handleWhatsAppClick = (code, title, category, subcategory) => {
     const message = `Buenos días, quería consultar por ${title}, con el código ${code} que figura en su catálogo de Injeccordiesel.com.ar en ${category}, ${subcategory}. \n\n"Aquí escribe tu consulta"`;
-    const whatsappUrl = `https://wa.me/3516658905?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/3516658905?text=${encodeURIComponent(
+      message
+    )}`;
     window.open(whatsappUrl, "_blank");
   };
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
+
+  const pageCount = Math.ceil(filteredProducts.length / productsPerPage);
+
+  const pagination = [];
+  for (let i = 1; i <= pageCount; i++) {
+    pagination.push(
+      <button
+        key={i}
+        onClick={() => handlePageChange(i)}
+        className={`btn ${page === i ? "btn-dark" : "btn-outline-dark"} ${
+          Style.page
+        }`}
+        style={{margin: "5px"}}
+        >
+        {i}
+      </button>
+    );
+  }
 
   return (
     <div>
@@ -68,10 +99,12 @@ export default function AllProducts() {
           onChange={handleSearchChange}
         />
       </div>
+      {/* Paginación */}
+      <div className="d-flex justify-content-center mt-4">{pagination}</div>
 
       {/* Contenedor de las Cartas */}
       <div className={Style.container}>
-        {filteredProducts.reverse().map((product, index) => (
+        {displayedProducts.reverse().map((product, index) => (
           <div
             className="card"
             style={{ width: "18rem", marginBottom: "1vh" }}

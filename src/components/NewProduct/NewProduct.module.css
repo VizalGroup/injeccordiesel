@@ -1,0 +1,6 @@
+.imageRender{
+    margin-top: 2%;
+    width: 20vw;
+    height: auto;
+    object-fit: contain;
+  }

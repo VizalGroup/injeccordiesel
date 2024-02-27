@@ -11,6 +11,7 @@ import {
   DeleteSubcategory,
 } from "../../../../redux/actions";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import Style from "./ConfigureCategories.module.css";
 
 export default function ConfigureCategories() {
   const dispatch = useDispatch();
@@ -184,6 +185,14 @@ export default function ConfigureCategories() {
             />
           </div>
           <br />
+          <div>
+              {editedCategory.picture ? (
+                <div>
+                  <img className={Style.imageRender} src={editedCategory.picture} />
+                </div>
+              ) : null}
+            </div>
+        <br />
           <button
             className="btn btn-primary"
             onClick={handleSaveEdit}

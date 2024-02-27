@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { PostCategory } from "../../../redux/actions";
+import { PostCategory, GetCategories } from "../../../redux/actions";
 import { Form, Button, Alert } from "react-bootstrap";
+import Style from "./NewCategory.module.css";
 
 export default function NewCategory() {
   const dispatch = useDispatch();
@@ -43,6 +44,10 @@ export default function NewCategory() {
     setFormData({ ...formData, [e.target.id]: file.secure_url });
   };
 
+  useEffect(() => {
+    dispatch(GetCategories());
+  }, [dispatch]);
+  
   return (
     <div>
       <h2>Nueva Categoría</h2>
@@ -88,6 +93,14 @@ export default function NewCategory() {
             required
           />
         </Form.Group>
+        <div>
+              {formData.picture ? (
+                <div>
+                  <img className={Style.imageRender} src={formData.picture} />
+                </div>
+              ) : null}
+            </div>
+        <br />
         <br />
         <Button variant="success" type="submit">
           Crear Categoría
