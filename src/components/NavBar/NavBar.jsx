@@ -20,7 +20,8 @@ export default function NavBar() {
             <img
               src={logo}
               alt="logo"
-              width="100"
+              width="auto"
+              height="50px"
               class="d-inline-block align-text-top"
             />{" "}
           </a>
