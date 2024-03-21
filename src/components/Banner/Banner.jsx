@@ -5,19 +5,23 @@ import { FaWhatsapp } from "react-icons/fa";
 export default function Banner() {
   return (
     <div className={Style.banner}>
-      <a href="https://wa.me/3516658905" style={{ textDecoration: "none" }}>
+      {/* <a href="https://wa.me/3516658905" style={{ textDecoration: "none" }}> */}
         <p className={Style.parr}>
           Si usted trabaja con bombas diesel, taller de reparación o tienda de
           repuestos, solicite recibir cotizaciones con precios a través de
           WhatsApp.
         </p>
         <a href="https://wa.me/3516658905" className={Style.whatsapp}>
-          <FaWhatsapp /> 3516658905 / 3516845357
+          <FaWhatsapp /> 3516658905 | 
+        </a>
+        {" "}
+        <a href="https://wa.me/3516845357" className={Style.whatsapp}>
+          3516845357
         </a>
         <p className={Style.parr}>
           <b>¡Contactanos!</b>
         </p>
-      </a>
+      {/* </a> */}
     </div>
   );
 }
